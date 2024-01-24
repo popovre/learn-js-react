@@ -1,0 +1,12 @@
+.reviewList {
+  align-self: flex-start;
+  list-style-type: none;
+}
+
+.item {
+  margin-bottom: 10px;
+
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+}

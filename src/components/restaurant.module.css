@@ -1,0 +1,34 @@
+.wrapper {
+  padding: 20px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: bisque;
+
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-style: italic;
+  font-size: 28px;
+  color: rgb(14, 14, 14);
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 20px;
+  color: rgb(18, 17, 17);
+  margin: 0;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  margin-left: 45%;
+}
+
+.reviewTitle {
+  margin-left: 10%;
+}
+
+.restaurantName {
+  align-self: flex-start;
+}
