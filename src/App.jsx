@@ -4,19 +4,17 @@ import Restaurant from './components/Restaurant';
 
 const App = () => {
   return (
-    <>
-      <MainLayout>
-        {restaurants.map((restaurant) => {
-          return (
-            <Restaurant
-              className="restaurant"
-              key={restaurant.id}
-              restaurant={restaurant}
-            />
-          );
-        })}
-      </MainLayout>
-    </>
+    <MainLayout>
+      {restaurants.map((restaurant) => {
+        return (
+          <Restaurant
+            className="restaurant"
+            key={restaurant.id}
+            restaurant={restaurant}
+          />
+        );
+      })}
+    </MainLayout>
   );
 };
 
