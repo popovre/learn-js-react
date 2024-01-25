@@ -1,0 +1,100 @@
+:root {
+  /* colors */
+  --default-black: #000000;
+  --default-white: #ffffff;
+
+  /* screen sizes */
+  --tablet-width: 768px;
+  --desktop-width: 1440px;
+  --mobile-width: 375px;
+
+  /* paddings */
+  --mobile-padding: 32px;
+  --tablet-padding: 70px;
+  --desktop-r-padding: 98px;
+
+  --max-width: 1440px;
+  --main-font: var(--font-inter), 'Arial', 'sans-serif';
+  --second-font: var(--font-robotoMono), 'Arial', 'sans-serif';
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: var(--main-font);
+
+  margin: 0;
+  padding: 0;
+  background-color: var(--default-white);
+  font-weight: 400;
+  font-size: 14px;
+  font-style: normal;
+
+  color: var(--default-black);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+/* hidden */
+.visually-hidden {
+  position: absolute;
+  width: 0;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: light;
+  }
+}
