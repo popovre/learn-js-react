@@ -1,20 +1,12 @@
-import MainLayout from './layouts/MainLayout';
+import Layout from './components/layout/component';
 import { restaurants } from './constants/mock';
-import Restaurant from './components/Restaurant';
+import Restaurants from './components/restaurants/component';
 
 const App = () => {
   return (
-    <MainLayout>
-      {restaurants.map((restaurant) => {
-        return (
-          <Restaurant
-            className="restaurant"
-            key={restaurant.id}
-            restaurant={restaurant}
-          />
-        );
-      })}
-    </MainLayout>
+    <Layout>
+      <Restaurants restaurants={restaurants} />
+    </Layout>
   );
 };
 
