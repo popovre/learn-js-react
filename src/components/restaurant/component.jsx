@@ -1,7 +1,7 @@
-import MenuList from './MenuList';
-import ReviewList from './ReviewList';
-import styles from './restaurant.module.css';
 import classNames from 'classnames';
+import styles from './style.module.scss';
+import Menu from '../menu/component';
+import Reviews from '../reviews/component';
 
 const Restaurant = ({ restaurant }) => {
   return (
@@ -10,9 +10,9 @@ const Restaurant = ({ restaurant }) => {
         {restaurant.name}
       </h1>
       <h3 className={classNames(styles.h3)}>Menu</h3>
-      <MenuList menu={restaurant.menu} />
+      <Menu menu={restaurant.menu} />
       <h3 className={classNames(styles.h3, styles.reviewTitle)}>Reviews</h3>
-      <ReviewList review={restaurant.reviews} />
+      <Reviews reviews={restaurant.reviews} />
     </div>
   );
 };
