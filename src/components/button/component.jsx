@@ -1,11 +1,14 @@
 import classNames from 'classnames';
 
-const Button = ({ children, disabled = false, className, onClick }) => {
+const Button = ({ children, disabled = false, className, onClick, id }) => {
+  const onButtonClickHandler = () => {
+    onClick(id);
+  };
   return (
     <button
       disabled={disabled}
       className={classNames(className)}
-      onClick={onClick}
+      onClick={onButtonClickHandler}
     >
       {children}
     </button>

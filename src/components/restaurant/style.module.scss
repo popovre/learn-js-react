@@ -1,22 +1,24 @@
-.wrapper {
-  padding: 20px 50px;
+.root {
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
+  gap: 10px;
   align-items: center;
-  background-color: bisque;
-
-  margin-bottom: 20px;
+  width: 30%;
+  background-color: rgb(255, 247, 238);
+  outline: 2px solid rgb(195, 190, 190);
+  border-radius: 10px;
 }
 
-h1 {
+.h1 {
   font-style: italic;
-  font-size: 28px;
+  font-size: 20px;
   color: rgb(14, 14, 14);
   margin: 0;
   margin-bottom: 10px;
 }
 
-h3 {
+.h3 {
   font-size: 20px;
   color: rgb(18, 17, 17);
   margin: 0;
