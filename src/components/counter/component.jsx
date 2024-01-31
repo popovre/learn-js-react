@@ -5,14 +5,10 @@ import styles from './styles.module.scss';
 
 const Counter = ({ minValue, maxValue, defaultValue = minValue }) => {
   const [count, setCount] = useState(defaultValue);
-  const [decrementState, setDecrementState] = useState(count === minValue);
-  const [incrementState, setIncrementState] = useState(count === maxValue);
 
   const decrement = () => {
     if (count > minValue) {
       const newState = count - 1;
-      setDecrementState(newState === minValue);
-      setIncrementState(newState === maxValue);
       setCount(newState);
     }
   };
@@ -20,8 +16,6 @@ const Counter = ({ minValue, maxValue, defaultValue = minValue }) => {
   const increment = () => {
     if (count < maxValue) {
       const newState = count + 1;
-      setDecrementState(newState === minValue);
-      setIncrementState(newState === maxValue);
       setCount(newState);
     }
   };
@@ -30,7 +24,7 @@ const Counter = ({ minValue, maxValue, defaultValue = minValue }) => {
     <div className={classNames(styles.root)}>
       <Button
         className={classNames(styles.button)}
-        disabled={decrementState}
+        disabled={count === minValue}
         onClick={decrement}
       >
         -
@@ -38,7 +32,7 @@ const Counter = ({ minValue, maxValue, defaultValue = minValue }) => {
       <span>{count}</span>
       <Button
         className={classNames(styles.button)}
-        disabled={incrementState}
+        disabled={count === maxValue}
         onClick={increment}
       >
         +

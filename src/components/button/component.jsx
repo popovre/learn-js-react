@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 
-const Button = ({ children, disabled = false, className, onClick, id }) => {
+const Button = ({ children, disabled = false, className, onClick }) => {
   const onButtonClickHandler = () => {
-    onClick(id);
+    onClick();
   };
   return (
     <button

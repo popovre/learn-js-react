@@ -17,8 +17,7 @@ const Tabs = ({ restaurants, onClick }) => {
     <div className={classNames(styles.root, styles.tabs, marginClass[margin])}>
       {restaurants.map((restaurant, i) => (
         <Button
-          id={restaurant.id}
-          onClick={onButtonClickHandler}
+          onClick={() => onButtonClickHandler(restaurant.id)}
           className={classNames(styles.button)}
           key={i}
         >
