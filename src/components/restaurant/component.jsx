@@ -5,7 +5,7 @@ import Reviews from '../reviews/component';
 
 const Restaurant = ({ restaurant }) => {
   return (
-    <div className={classNames(styles.wrapper)}>
+    <div className={classNames(styles.root)}>
       <h1 className={classNames(styles.h1, styles.restaurantName)}>
         {restaurant.name}
       </h1>

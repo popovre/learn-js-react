@@ -1,13 +1,18 @@
 import Header from '../header/component';
 import Footer from '../footer/component';
+import styles from './style.module.scss';
+import classNames from 'classnames';
 
 const Layout = ({ children }) => {
   return (
-    <>
+    <div className={classNames(styles.root)}>
       <Header />
-      <div>{children}</div>
+      <main className={classNames(styles.main)}>
+        <h1 className={classNames(styles.title)}>Main</h1>
+        {children}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

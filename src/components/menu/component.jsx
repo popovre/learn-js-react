@@ -3,7 +3,6 @@ import styles from './style.module.scss';
 import Dish from '../dish/component';
 
 const Menu = ({ menu }) => {
-  console.log(menu);
   return (
     <ul className={classNames(styles.list)}>
       {menu.map((dish) => {
