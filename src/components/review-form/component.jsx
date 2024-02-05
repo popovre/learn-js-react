@@ -45,7 +45,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const ReviewForm = () => {
+const ReviewForm = ({ userName }) => {
   const [form, dispatch] = useReducer(reducer, INITIAL_FORM);
 
   const onChangeRating = (e) => {
@@ -65,7 +65,7 @@ const ReviewForm = () => {
           className={classNames(styles.input)}
           id="name"
           type="text"
-          value={form.name}
+          value={userName ? userName : form.name}
           onChange={(e) =>
             dispatch({ type: 'setName', payload: e.target.value })
           }
