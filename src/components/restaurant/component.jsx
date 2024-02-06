@@ -7,7 +7,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/user';
 
 const Restaurant = ({ restaurant }) => {
-  const user = useContext(UserContext);
+  const { user } = useContext(UserContext);
   return (
     <div className={classNames(styles.root)}>
       <h1 className={classNames(styles.h1, styles.restaurantName)}>

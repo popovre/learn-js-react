@@ -4,24 +4,21 @@ import styles from './style.module.scss';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { UserContext } from '../../contexts/user';
-import { user as userDefault } from '../../constants/structures';
+import { user as USER_DEFAULT } from '../../constants/structures';
 
 const Layout = ({ children }) => {
-  const [user, setUser] = useState(userDefault);
-  const loginUser = (userData) => {
-    (userData.name === 'validName') & (userData.mail === 'validMail')
-      ? setUser({ ...userDefault, name: 'validName', mail: 'validMail' })
-      : setUser({ ...userDefault });
-  };
+  const [user, setUser] = useState(USER_DEFAULT);
+
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={{ user, setUser }}>
       <div className={classNames(styles.root)}>
-        <Header setUser={loginUser} />
+        <Header />
         <main className={classNames(styles.main)}>
           <h1 className={classNames(styles.title)}>Main</h1>
           {children}
         </main>
         <Footer />
+        <div id="modal-container"></div>
       </div>
     </UserContext.Provider>
   );

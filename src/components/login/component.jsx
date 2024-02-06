@@ -2,12 +2,13 @@ import classNames from 'classnames';
 import styles from './style.module.scss';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user';
-import { createPortal } from 'react-dom';
+
 import Modal from '../modal/component';
 import { useState } from 'react';
+import { user as USER_DEFAULT } from '../../constants/structures';
 
-const Login = ({ setUser, className }) => {
-  const user = useContext(UserContext);
+const Login = ({ className }) => {
+  const { user, setUser } = useContext(UserContext);
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -19,22 +20,19 @@ const Login = ({ setUser, className }) => {
         onClick={() => {
           user.name === '' && user.mail === ''
             ? setShowModal(true)
-            : setUser('invalid');
+            : setUser(USER_DEFAULT);
         }}
       >
         <span>
           {user.name === '' && user.mail === '' ? 'Log in' : 'Log out'}
         </span>
       </button>
-      {showModal &&
-        createPortal(
-          <Modal
-            className={classNames(styles.modal)}
-            onClose={() => setShowModal(false)}
-            onLogin={(userData) => setUser(userData)}
-          />,
-          document.querySelector('main')
-        )}
+      {showModal && (
+        <Modal
+          className={classNames(styles.modal)}
+          onClose={() => setShowModal(false)}
+        />
+      )}
     </div>
   );
 };
