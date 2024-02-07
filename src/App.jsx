@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <Layout>
-        <Restaurants restaurants={restaurants} />
+        <Restaurants />
       </Layout>
     </Provider>
   );
