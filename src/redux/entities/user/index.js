@@ -4,10 +4,10 @@ import { normalizedUsers } from '../../../constants/normalized-mock';
 export const userSlice = createSlice({
   name: 'user',
   initialState: {
-    entities: normalizedUsers.reduce((acc, review) => {
-      acc[review.id] = review;
+    entities: normalizedUsers.reduce((acc, user) => {
+      acc[user.id] = user;
       return acc;
-    }),
+    }, {}),
     ids: normalizedUsers.map(({ id }) => id),
   },
 });
