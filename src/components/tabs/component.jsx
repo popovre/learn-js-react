@@ -1,11 +1,8 @@
 import { useSelector } from 'react-redux';
-import {
-  selectRestaurantById,
-  selectRestaurantIds,
-} from '../../redux/entities/restaurant/selectors';
-import Button from '../button/component';
+import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
+import Tab from '../tab/component';
 
 const Tabs = ({ onClick }) => {
   const marginClass = {
@@ -17,20 +14,17 @@ const Tabs = ({ onClick }) => {
 
   const restaurantIds = useSelector(selectRestaurantIds);
 
-  const onButtonClickHandler = (id) => {
-    onClick(id);
-  };
   return (
     <div className={classNames(styles.root, styles.tabs, marginClass[margin])}>
-      {restaurantIds.map((restaurantId, i) => {
+      {restaurantIds.map((id) => {
         return (
-          <Button
-            onClick={() => onButtonClickHandler(restaurantId)}
-            className={classNames(styles.button)}
-            key={i}
-          >
-            {selected}
-          </Button>
+          <Tab
+            key={id}
+            id={id}
+            onClick={() => {
+              onClick(id);
+            }}
+          />
         );
       })}
     </div>

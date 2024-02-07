@@ -3,10 +3,7 @@ import Tabs from '../tabs/component';
 import classNames from 'classnames';
 import styles from './style.module.scss';
 import { useState } from 'react';
-import {
-  selectRestaurantById,
-  selectRestaurantIds,
-} from '../../redux/entities/restaurant/selectors';
+import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
 import { useSelector } from 'react-redux';
 
 const Restaurants = () => {
@@ -15,20 +12,16 @@ const Restaurants = () => {
     restaurantIds[0]
   );
 
-  const selectedRestaurant = restaurantIds.find(
-    (restaurantId) => restaurantId === selectedRestaurant
-  );
-
-  const onTabButtonClick = (id) => {
+  const onTabClick = (id) => {
     setCurrentRestaurantId(id);
   };
 
   return (
     <div>
-      <Tabs onClick={onTabButtonClick}></Tabs>
+      <Tabs onClick={onTabClick} />
       <div className={classNames(styles.restaurants)}>
         {currentRestaurantId && (
-          <Restaurant restaurant={restaurant} key={restaurant.id} />
+          <Restaurant id={currentRestaurantId} key={currentRestaurantId} />
         )}
       </div>
     </div>
