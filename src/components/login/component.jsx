@@ -6,6 +6,7 @@ import { UserContext } from '../../contexts/user';
 import Modal from '../modal/component';
 import { useState } from 'react';
 import { user as USER_DEFAULT } from '../../constants/structures';
+import LoginForm from '../login-form/component';
 
 const Login = ({ className }) => {
   const { user, setUser } = useContext(UserContext);
@@ -30,8 +31,10 @@ const Login = ({ className }) => {
       {showModal && (
         <Modal
           className={classNames(styles.modal)}
-          onClose={() => setShowModal(false)}
-        />
+          title="Log in to your account"
+        >
+          <LoginForm onClose={() => setShowModal(false)} />
+        </Modal>
       )}
     </div>
   );
