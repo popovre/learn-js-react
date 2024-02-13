@@ -1,0 +1,21 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 150px;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.login {
+  align-self: flex-end;
+}
+
+.user {
+  align-self: center;
+  color: rebeccapurple;
+}

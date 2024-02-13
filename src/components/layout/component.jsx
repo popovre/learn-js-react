@@ -12,6 +12,7 @@ const Layout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <div id="modal-container"></div>
     </div>
   );
 };
