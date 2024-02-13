@@ -2,13 +2,13 @@ import classNames from 'classnames';
 import styles from './style.module.scss';
 import Dish from '../dish/component';
 
-const Menu = ({ menu }) => {
+const Menu = ({ menuIds }) => {
   return (
     <ul className={classNames(styles.list)}>
-      {menu.map((dish) => {
+      {menuIds.map((id) => {
         return (
-          <li className={classNames(styles.dish)} key={dish.id}>
-            <Dish dish={dish} key={dish.id} />
+          <li className={classNames(styles.dish)} key={id}>
+            <Dish id={id} key={id} />
           </li>
         );
       })}
