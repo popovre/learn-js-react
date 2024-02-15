@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import { ButtonViewVariant } from './contants';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
