@@ -10,8 +10,6 @@ const ReviewsContainer = ({ restaurantId }) => {
     selectRestaurantReviewsById(state, restaurantId)
   );
 
-  console.log(reviewIds, 'reviewIds');
-
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { selectRestaurantReviewsById } from '../../restaurant/selectors';
-import { selectReviewIds } from '../selectors';
+import { selectRestaurantUsersById } from '../../restaurant/selectors';
+import { selectUserIds } from '../selectors';
 
-export const getReviewsByRestaurantId = createAsyncThunk(
+export const getUsersByRestaurantId = createAsyncThunk(
   '/api/getReviewsByRestaurantId',
   async (restaurantId) => {
     const response = await fetch(
@@ -13,13 +13,13 @@ export const getReviewsByRestaurantId = createAsyncThunk(
   },
   {
     condition: (restaurantId, { getState }) => {
-      const restaurantReviewIds = selectRestaurantReviewsById(
+      const restaurantUserIds = selectRestaurantUsersById(
         getState(),
         restaurantId
       );
 
-      const reviewIds = selectReviewIds(getState());
-      return !restaurantReviewIds.every((id) => reviewIds.includes(id));
+      const userIds = selectUserIds(getState());
+      return !restaurantUserIds.every((id) => userIds.includes(id));
     },
   }
 );
