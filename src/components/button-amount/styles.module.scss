@@ -1,11 +1,14 @@
 .root {
   border: 1px solid grey;
   border-radius: 4px;
+  margin-block: 1rem;
 }
 
 .primary {
-  background-color: rgb(208, 55, 0);
-  color: white;
+  background-color: rgb(255, 134, 91);
+  color: rgb(76, 70, 70);
+  align-self: center;
+  min-width: 3rem;
 }
 
 .secondary {
