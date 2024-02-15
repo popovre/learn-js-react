@@ -3,6 +3,7 @@ import Login from '../login/component';
 import styles from './style.module.scss';
 import classNames from 'classnames';
 import { UserContext } from '../../contexts/user';
+import { CartButtonContainer } from '../cart-button/container';
 
 const Header = () => {
   const { user } = useContext(UserContext);
@@ -18,6 +19,7 @@ const Header = () => {
       {user.name === '' && (
         <p className={classNames(styles.user)}>Log in to your account!</p>
       )}
+      <CartButtonContainer />
     </header>
   );
 };

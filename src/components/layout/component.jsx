@@ -13,6 +13,7 @@ const Layout = ({ children }) => {
       </main>
       <Footer />
       <div id="modal-container"></div>
+      <div id="popoverContainer" className={styles.popoverContainer} />
     </div>
   );
 };
