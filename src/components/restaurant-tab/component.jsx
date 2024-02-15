@@ -4,7 +4,7 @@ import Button from '../button/component';
 import classNames from 'classnames';
 import styles from './style.module.scss';
 
-const Tab = ({ id, onClick }) => {
+const RestaurantTab = ({ id, onClick }) => {
   const restaurant = useSelector((state) => selectRestaurantById(state, id));
 
   return (
@@ -14,4 +14,4 @@ const Tab = ({ id, onClick }) => {
   );
 };
 
-export default Tab;
+export default RestaurantTab;
