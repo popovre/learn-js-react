@@ -10,7 +10,7 @@ export const reviewSlice = createSlice({
     builder.addCase(
       getReviewsByRestaurantId.fulfilled,
       (state, { payload }) => {
-        entityAdapter.upsertMany(state, payload);
+        entityAdapter.setMany(state, payload);
       }
     );
   },
