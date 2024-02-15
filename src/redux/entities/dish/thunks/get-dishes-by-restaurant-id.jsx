@@ -8,7 +8,6 @@ export const getDishesByRestaurantId = createAsyncThunk(
     const response = await fetch(
       `http://localhost:3001/api/dishes?restaurantId=${restaurantId}`
     );
-
     return await response.json();
   },
   {

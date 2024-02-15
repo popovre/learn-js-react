@@ -14,7 +14,6 @@ const MenuContainer = ({ restaurantId }) => {
 
   useEffect(() => {
     dispatch(getDishesByRestaurantId(restaurantId));
-    console.log('dispatch');
   }, [restaurantId]);
 
   if (!dishIds?.length) {
