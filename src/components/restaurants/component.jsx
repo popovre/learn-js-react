@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import styles from './style.module.scss';
 import { useState } from 'react';
-// import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -11,11 +10,6 @@ import TabsContainer from '../restaurant-tabs/container';
 import RestaurantContainer from '../restaurant/container';
 
 const Restaurants = () => {
-  // const restaurantIds = useSelector(selectRestaurantIds);
-  // const [currentRestaurantId, setCurrentRestaurantId] = useState(
-  //   restaurantIds[0]
-  // );
-
   const [requestId, setRequestId] = useState(null);
   const isLoading = useSelector((state) => selectIsLoading(state, requestId));
 

@@ -10,8 +10,6 @@ const RestaurantTabs = ({ onClick, restaurantIds }) => {
 
   const margin = 'marginS';
 
-  // const restaurantIds = useSelector(selectRestaurantIds);
-
   return (
     <div className={classNames(styles.root, styles.tabs, marginClass[margin])}>
       {restaurantIds.map((id) => {

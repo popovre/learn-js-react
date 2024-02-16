@@ -4,6 +4,7 @@ import { selectRestaurantReviewsById } from '../../redux/entities/restaurant/sel
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getReviewsByRestaurantId } from '../../redux/entities/review/thunks/get-reviews-by-restaurant-id';
+import { getUsers } from '../../redux/entities/user/thunks/get-users';
 
 const ReviewsContainer = ({ restaurantId }) => {
   const reviewIds = useSelector((state) =>
@@ -14,6 +15,7 @@ const ReviewsContainer = ({ restaurantId }) => {
 
   useEffect(() => {
     dispatch(getReviewsByRestaurantId(restaurantId));
+    dispatch(getUsers());
   }, [restaurantId]);
 
   if (!reviewIds?.length) {

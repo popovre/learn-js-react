@@ -1,8 +1,13 @@
 import classNames from 'classnames';
+import { forwardRef } from 'react';
 
-const Button = ({ children, disabled = false, className, onClick }) => {
+const Button = forwardRef(function button(
+  { children, disabled = false, className, onClick },
+  ref
+) {
   return (
     <button
+      ref={ref}
       disabled={disabled}
       className={classNames(className)}
       onClick={() => onClick()}
@@ -10,6 +15,6 @@ const Button = ({ children, disabled = false, className, onClick }) => {
       {children}
     </button>
   );
-};
+});
 
 export default Button;
