@@ -4,7 +4,6 @@ import { selectCartProductIds } from '../../redux/ui/cart';
 
 const CartContainer = () => {
   const productIds = useSelector(selectCartProductIds);
-  console.log(productIds);
   return <Cart productIds={productIds} />;
 };
 

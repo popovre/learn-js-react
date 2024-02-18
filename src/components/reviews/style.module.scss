@@ -1,6 +1,9 @@
 .reviewList {
   align-self: flex-start;
   list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 }
 
 .review {

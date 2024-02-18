@@ -1,25 +1,16 @@
-import { useContext } from 'react';
 import Login from '../login/component';
 import styles from './style.module.scss';
 import classNames from 'classnames';
-import { UserContext } from '../../contexts/user';
 import { CartButtonContainer } from '../cart-button/container';
 
 const Header = () => {
-  const { user } = useContext(UserContext);
   return (
     <header className={classNames(styles.root)}>
       <h1 className={classNames(styles.title)}>Header</h1>
-      <Login className={classNames(styles.login)} />
-      {user.name === 'validName' && (
-        <p className={classNames(styles.user)}>
-          You are welcome, {user.name} !
-        </p>
-      )}
-      {user.name === '' && (
-        <p className={classNames(styles.user)}>Log in to your account!</p>
-      )}
-      <CartButtonContainer />
+      <div className={classNames(styles.userPanel)}>
+        <CartButtonContainer />
+        <Login className={classNames(styles.login)} />
+      </div>
     </header>
   );
 };

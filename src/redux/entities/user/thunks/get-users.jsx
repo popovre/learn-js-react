@@ -6,7 +6,6 @@ export const getUsers = createAsyncThunk(
   '/api/getUsersByRestaurantId',
   async () => {
     const response = await fetch(`http://localhost:3001/api/users`);
-    console.log('get users');
     return await response.json();
   }
   // {

@@ -15,7 +15,7 @@ const Dish = ({ id }) => {
       <div>Price: {dish?.price}</div>
       <div>Ingredients: {dish?.ingredients.join(', ')} </div>
       <div>
-        <Counter minValue={minValue} maxValue={maxValue} />
+        <Counter dishId={id} minValue={minValue} maxValue={maxValue} />
       </div>
     </div>
   );
