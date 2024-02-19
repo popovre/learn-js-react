@@ -4,7 +4,7 @@ import { selectUserById } from '../../redux/entities/user/selectors';
 
 const Review = ({ id }) => {
   const review = useSelector((state) => selectReviewById(state, id));
-  const user = useSelector((state) => selectUserById(state, review.userId));
+  const user = useSelector((state) => selectUserById(state, review?.userId));
   return (
     <div>
       <div>Review: {review?.text}</div>

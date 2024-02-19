@@ -1,39 +1,32 @@
 import Button from '../button/component';
-import { useState } from 'react';
 import classNames from 'classnames';
 import styles from './styles.module.scss';
+import { useSelector } from 'react-redux';
+import {
+  selectProductAmountById,
+  decrement,
+  increment,
+} from '../../redux/ui/cart';
+import { useDispatch } from 'react-redux';
 
-const Counter = ({ minValue, maxValue, defaultValue = minValue }) => {
-  const [count, setCount] = useState(defaultValue);
-
-  const decrement = () => {
-    if (count > minValue) {
-      const newState = count - 1;
-      setCount(newState);
-    }
-  };
-
-  const increment = () => {
-    if (count < maxValue) {
-      const newState = count + 1;
-      setCount(newState);
-    }
-  };
+const Counter = ({ minValue, maxValue, dishId }) => {
+  const amount = useSelector((state) => selectProductAmountById(state, dishId));
+  const dispatch = useDispatch();
 
   return (
     <div className={classNames(styles.root)}>
       <Button
         className={classNames(styles.button)}
-        disabled={count === minValue}
-        onClick={decrement}
+        disabled={amount === minValue}
+        onClick={() => dispatch(decrement(dishId))}
       >
         -
       </Button>
-      <span>{count}</span>
+      <span>{amount}</span>
       <Button
         className={classNames(styles.button)}
-        disabled={count === maxValue}
-        onClick={increment}
+        disabled={amount === maxValue}
+        onClick={() => dispatch(increment(dishId))}
       >
         +
       </Button>

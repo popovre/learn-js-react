@@ -14,20 +14,30 @@ const Login = ({ className }) => {
 
   return (
     <div className={classNames(styles.root, className)}>
-      <button
-        className={classNames(styles.button, {
-          [styles.logout]: user.name === 'validName',
-        })}
-        onClick={() => {
-          user.name === '' && user.mail === ''
-            ? setShowModal(true)
-            : setUser(USER_DEFAULT);
-        }}
-      >
-        <span>
-          {user.name === '' && user.mail === '' ? 'Log in' : 'Log out'}
-        </span>
-      </button>
+      <div className={classNames(styles.loginText)}>
+        {user.name === 'validName' && (
+          <p className={classNames(styles.user)}>
+            You are welcome, {user.name} !
+          </p>
+        )}
+        {user.name === '' && (
+          <p className={classNames(styles.user)}>Log in to your account!</p>
+        )}
+        <button
+          className={classNames(styles.button, {
+            [styles.logout]: user.name === 'validName',
+          })}
+          onClick={() => {
+            user.name === '' && user.mail === ''
+              ? setShowModal(true)
+              : setUser(USER_DEFAULT);
+          }}
+        >
+          <span>
+            {user.name === '' && user.mail === '' ? 'Log in' : 'Log out'}
+          </span>
+        </button>
+      </div>
       {showModal && (
         <Modal
           className={classNames(styles.modal)}

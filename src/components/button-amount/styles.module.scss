@@ -1,0 +1,29 @@
+.root {
+  border: 1px solid grey;
+  border-radius: 4px;
+  margin-block: 1rem;
+}
+
+.primary {
+  background-color: rgb(255, 134, 91);
+  color: rgb(76, 70, 70);
+  align-self: center;
+  min-width: 3rem;
+}
+
+.secondary {
+  background-color: white;
+  color: black;
+}
+
+.s {
+  font-size: 12px;
+}
+
+.m {
+  font-size: 14px;
+}
+
+.l {
+  font-size: 20px;
+}

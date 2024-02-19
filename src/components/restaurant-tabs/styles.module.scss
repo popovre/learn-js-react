@@ -1,8 +1,9 @@
 .root {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  outline: 1px dotted burlywood;
+  justify-content: flex-end;
+  column-gap: 2rem;
+  padding-inline: 3rem;
 }
 
 .marginS {
