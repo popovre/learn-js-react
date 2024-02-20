@@ -8,6 +8,8 @@ import { getRestaurants } from '../../redux/entities/restaurant/thunks/get-resta
 import { selectIsLoading } from '../../redux/ui/request/selectors';
 import TabsContainer from '../restaurant-tabs/container';
 import RestaurantContainer from '../restaurant/container';
+// import { useRequest } from '../../hooks/use-request';
+// import { REQUEST_STATUS } from '../../redux/ui/request/constants';
 
 const Restaurants = () => {
   const [requestId, setRequestId] = useState(null);
