@@ -15,8 +15,6 @@ const ReviewsContainer = ({ restaurant }) => {
     }),
   });
 
-  console.log(reviews, 'reviews');
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -31,7 +29,7 @@ const ReviewsContainer = ({ restaurant }) => {
   if (!reviews?.length) {
     return null;
   }
-  return <Reviews reviewIds={reviews} />;
+  return <Reviews reviews={reviews} />;
 };
 
 export default ReviewsContainer;

@@ -1,8 +1,11 @@
 import Counter from '../counter/component';
 import classNames from 'classnames';
 import styles from './style.module.scss';
+import { useGetDishQuery } from '../../redux/services/api';
 
-const Dish = ({ dish }) => {
+const Dish = ({ dishId }) => {
+  const { data: dish } = useGetDishQuery(dishId);
+
   const minValue = 0;
   const maxValue = 5;
   return (
@@ -11,7 +14,7 @@ const Dish = ({ dish }) => {
       <div>Price: {dish?.price}</div>
       <div>Ingredients: {dish?.ingredients.join(', ')} </div>
       <div>
-        <Counter dishId={dish.id} minValue={minValue} maxValue={maxValue} />
+        <Counter dishId={dishId} minValue={minValue} maxValue={maxValue} />
       </div>
     </div>
   );

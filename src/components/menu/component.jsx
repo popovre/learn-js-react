@@ -8,7 +8,7 @@ const Menu = ({ dishes }) => {
       {dishes.map((dish) => {
         return (
           <li className={classNames(styles.dish)} key={dish.id}>
-            <Dish dish={dish} key={dish.id} />
+            <Dish dish={dish} dishId={dish.id} key={dish.id} />
           </li>
         );
       })}
