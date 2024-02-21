@@ -1,15 +1,11 @@
-import { useSelector } from 'react-redux';
-import { selectRestaurantById } from '../../redux/entities/restaurant/selectors';
 import Button from '../button/component';
 import classNames from 'classnames';
 import styles from './style.module.scss';
 
-const RestaurantTab = ({ id, onClick }) => {
-  const restaurant = useSelector((state) => selectRestaurantById(state, id));
-
+const RestaurantTab = ({ name, onClick }) => {
   return (
     <Button className={classNames(styles.button)} onClick={onClick}>
-      {restaurant.name}
+      {name}
     </Button>
   );
 };

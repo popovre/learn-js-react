@@ -2,7 +2,7 @@ import RestaurantTab from '../restaurant-tab/component';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 
-const RestaurantTabs = ({ onClick, restaurantIds }) => {
+const RestaurantTabs = ({ onClick, restaurants }) => {
   const marginClass = {
     marginS: styles.marginS,
     marginM: styles.marginM,
@@ -12,11 +12,11 @@ const RestaurantTabs = ({ onClick, restaurantIds }) => {
 
   return (
     <div className={classNames(styles.root, styles.tabs, marginClass[margin])}>
-      {restaurantIds.map((id) => {
+      {restaurants.map(({ id, name }) => {
         return (
           <RestaurantTab
             key={id}
-            id={id}
+            name={name}
             onClick={() => {
               onClick(id);
             }}

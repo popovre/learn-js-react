@@ -11,7 +11,7 @@ export const api = createApi({
       query: () => ({ url: 'users' }),
     }),
     getDishes: builder.query({
-      query: (restaurantId) => ({ url: 'dishes', params: { restaurantId } }),
+      query: (dishId) => ({ url: 'dishes', params: { dishId } }),
     }),
     getReviews: builder.query({
       query: (restaurantId) => ({ url: 'reviews', params: { restaurantId } }),
@@ -19,4 +19,5 @@ export const api = createApi({
   }),
 });
 
-export const { getRestaurantsQuery, getDishesQuery, getReviewsQuery } = api;
+export const { useGetRestaurantsQuery, useGetDishesQuery, useGetReviewsQuery } =
+  api;

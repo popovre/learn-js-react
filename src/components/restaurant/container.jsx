@@ -3,7 +3,7 @@ import Restaurant from './component';
 import { selectRestaurantById } from '../../redux/entities/restaurant/selectors';
 
 const RestaurantContainer = ({ id }) => {
-  const restaurant = useSelector((state) => selectRestaurantById(state, id));
+  // const restaurant = useSelector((state) => selectRestaurantById(state, id));
 
   if (!restaurant) {
     return null;
