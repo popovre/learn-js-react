@@ -11,10 +11,16 @@ export const api = createApi({
       query: () => ({ url: 'users' }),
     }),
     getDishes: builder.query({
-      query: (dishId) => ({ url: 'dishes', params: { dishId } }),
+      query: (restaurantId) => ({
+        url: `dishes?restaurantId=${restaurantId}`,
+        params: { restaurantId },
+      }),
     }),
     getReviews: builder.query({
-      query: (restaurantId) => ({ url: 'reviews', params: { restaurantId } }),
+      query: (restaurantId) => ({
+        url: `reviews?restaurantId=${restaurantId}`,
+        params: { restaurantId },
+      }),
     }),
   }),
 });

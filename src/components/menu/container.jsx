@@ -1,26 +1,23 @@
-import { useSelector } from 'react-redux';
-import { selectRestaurantMenuById } from '../../redux/entities/restaurant/selectors';
 import Menu from './component';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { getDishesByRestaurantId } from '../../redux/entities/dish/thunks/get-dishes-by-restaurant-id';
+import { useGetDishesQuery } from '../../redux/services/api';
 
-const MenuContainer = ({ restaurantId }) => {
-  const dishIds = useSelector((state) =>
-    selectRestaurantMenuById(state, restaurantId)
-  );
+const MenuContainer = ({ restaurant }) => {
+  const { data: dishes, isLoading } = useGetDishesQuery(restaurant.id, {
+    selectFromResult: (result) => ({
+      ...result,
+      data: result.data?.filter((dish) => restaurant.menu.includes(dish.id)),
+    }),
+  });
 
-  const dispatch = useDispatch();
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  useEffect(() => {
-    dispatch(getDishesByRestaurantId(restaurantId));
-  }, [restaurantId]);
-
-  if (!dishIds?.length) {
+  if (!dishes?.length) {
     return null;
   }
 
-  return <Menu dishIds={dishIds} />;
+  return <Menu dishes={dishes} />;
 };
 
 export default MenuContainer;

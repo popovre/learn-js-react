@@ -8,7 +8,6 @@ import Layout from '../../components/layout/component';
 
 const RestaurantPage = () => {
   const [restaurantId, setRestaurantId] = useState(null);
-  console.log(restaurantId);
 
   const { isLoading, isFetching, refetch } = useGetRestaurantsQuery();
 

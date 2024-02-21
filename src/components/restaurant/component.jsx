@@ -8,18 +8,16 @@ import ReviewsContainer from '../reviews/container';
 
 const Restaurant = ({ restaurant }) => {
   const { user } = useContext(UserContext);
+
   return (
     <div className={classNames(styles.root)}>
       <h1 className={classNames(styles.h1, styles.restaurantName)}>
         {restaurant.name}
       </h1>
       <h3 className={classNames(styles.h3)}>Menu</h3>
-      <MenuContainer restaurantId={restaurant.id} />
+      <MenuContainer restaurant={restaurant} />
       <h3 className={classNames(styles.h3, styles.reviewTitle)}>Reviews</h3>
-      <ReviewsContainer
-        restaurantId={restaurant.id}
-        reviewIds={restaurant.reviews}
-      />
+      <ReviewsContainer restaurant={restaurant} />
       {user.name === 'validName' && user.mail === 'validMail' && (
         <ReviewForm userName={user.name} />
       )}
