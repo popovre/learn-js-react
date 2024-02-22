@@ -28,11 +28,18 @@ export const api = createApi({
         url: `reviews?restaurantId=${restaurantId}`,
         params: { restaurantId },
       }),
+      providesTags: (result, _, restaurantId) =>
+        result
+          .map(({ id }) => ({ type: 'Review', id }))
+          .concat(
+            { type: 'Review', id: 'ALL' },
+            { type: 'Restaurant', id: restaurantId }
+          ),
     }),
     updateReview: builder.mutation({
       query: ({ reviewId, review }) => ({
         url: `review/${reviewId}`,
-        method: 'UPDATE',
+        method: 'PATCH',
         body: review,
       }),
       invalidatesTags: (result, _, { reviewId }) => [
