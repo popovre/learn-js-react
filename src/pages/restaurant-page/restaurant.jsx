@@ -9,11 +9,11 @@ import Layout from '../../components/layout/component';
 const RestaurantPage = () => {
   const [restaurantId, setRestaurantId] = useState(null);
 
-  const { isLoading, isFetching, refetch } = useGetRestaurantsQuery();
+  const { isFetching, refetch } = useGetRestaurantsQuery();
 
   return (
     <Layout>
-      {isLoading ? (
+      {isFetching ? (
         <div>Loading...</div>
       ) : (
         <>

@@ -1,6 +1,9 @@
 import { useReducer } from 'react';
 import styles from './style.module.scss';
 import classNames from 'classnames';
+import Button from '../button/component';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/user';
 
 const INITIAL_FORM = {
   name: '',
@@ -45,9 +48,9 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const ReviewForm = ({ userName }) => {
+const ReviewForm = ({ initialState, onSave }) => {
   const [form, dispatch] = useReducer(reducer, INITIAL_FORM);
-
+  const user = useContext(UserContext);
   const onChangeRating = (e) => {
     return +e.target.value === 1
       ? dispatch({ type: 'setMadRating', payload: e.target.value })
@@ -65,7 +68,7 @@ const ReviewForm = ({ userName }) => {
           className={classNames(styles.input)}
           id="name"
           type="text"
-          value={userName ? userName : form.name}
+          value={user.name ? user.name : form.name}
           onChange={(e) =>
             dispatch({ type: 'setName', payload: e.target.value })
           }
@@ -95,6 +98,12 @@ const ReviewForm = ({ userName }) => {
           onChange={onChangeRating}
         />
       </div>
+      <Button
+        className={classNames(styles.button)}
+        onClick={() => onSave(form)}
+      >
+        Сохранить
+      </Button>
     </div>
   );
 };

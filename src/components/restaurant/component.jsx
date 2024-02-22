@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import styles from './style.module.scss';
-import ReviewForm from '../review-form/component';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user';
 import MenuContainer from '../menu/container';
 import ReviewsContainer from '../reviews/container';
+import CreateReviewFormContainer from '../create-review-form/container';
 
 const Restaurant = ({ restaurant }) => {
   const { user } = useContext(UserContext);
@@ -19,8 +19,9 @@ const Restaurant = ({ restaurant }) => {
       <h3 className={classNames(styles.h3, styles.reviewTitle)}>Reviews</h3>
       <ReviewsContainer restaurant={restaurant} />
       {user.name === 'validName' && user.mail === 'validMail' && (
-        <ReviewForm userName={user.name} />
+        <CreateReviewFormContainer restaurantId={restaurant.id} />
       )}
+      {/* <CreateReviewFormContainer restaurantId={restaurant.id} /> */}
     </div>
   );
 };
