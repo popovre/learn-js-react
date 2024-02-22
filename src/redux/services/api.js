@@ -25,7 +25,7 @@ export const api = createApi({
     }),
     getReviews: builder.query({
       query: (restaurantId) => ({
-        url: `reviews?restaurantId=${restaurantId}`,
+        url: `reviews`,
         params: { restaurantId },
       }),
       providesTags: (result, _, restaurantId) =>

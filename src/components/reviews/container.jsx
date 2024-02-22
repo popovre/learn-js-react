@@ -6,23 +6,26 @@ import { getUsers } from '../../redux/entities/user/thunks/get-users';
 import { useGetReviewsQuery } from '../../redux/services/api';
 
 const ReviewsContainer = ({ restaurant }) => {
-  const { data: reviews, isLoading } = useGetReviewsQuery(restaurant.id, {
-    selectFromResult: (result) => ({
-      ...result,
-      data: result.data?.filter((review) =>
-        restaurant.reviews.includes(review.id)
-      ),
-    }),
-  });
+  // const { data: reviews, isLoading } = useGetReviewsQuery(restaurant.id, {
+  //   selectFromResult: (result) => ({
+  //     ...result,
+  //     data: result.data?.filter((review) =>
+  //       restaurant.reviews.includes(review.id)
+  //     ),
+  //   }),
+  // });
 
-  const dispatch = useDispatch();
+  const { data: reviews, isFetching } = useGetReviewsQuery(restaurant.id);
+  console.log(reviews);
 
-  useEffect(() => {
-    dispatch(getReviewsByRestaurantId(restaurant.id));
-    dispatch(getUsers());
-  }, [restaurant.id]);
+  // const dispatch = useDispatch();
 
-  if (isLoading) {
+  // useEffect(() => {
+  //   dispatch(getReviewsByRestaurantId(restaurant.id));
+  //   dispatch(getUsers());
+  // }, [restaurant.id]);
+
+  if (isFetching) {
     return <div>Loading...</div>;
   }
 
