@@ -18,13 +18,6 @@ const ReviewsContainer = ({ restaurant }) => {
   const { data: reviews, isFetching } = useGetReviewsQuery(restaurant.id);
   console.log(reviews);
 
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch(getReviewsByRestaurantId(restaurant.id));
-  //   dispatch(getUsers());
-  // }, [restaurant.id]);
-
   if (isFetching) {
     return <div>Loading...</div>;
   }
