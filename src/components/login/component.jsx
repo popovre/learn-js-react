@@ -15,12 +15,12 @@ const Login = ({ className }) => {
   return (
     <div className={classNames(styles.root, className)}>
       <div className={classNames(styles.loginText)}>
-        {user.name === 'validName' && (
+        {user.name && (
           <p className={classNames(styles.user)}>
             You are welcome, {user.name} !
           </p>
         )}
-        {user.name === '' && (
+        {!user.name && (
           <p className={classNames(styles.user)}>Log in to your account!</p>
         )}
         <button
@@ -28,14 +28,12 @@ const Login = ({ className }) => {
             [styles.logout]: user.name === 'validName',
           })}
           onClick={() => {
-            user.name === '' && user.mail === ''
+            !user.name && !user.mail
               ? setShowModal(true)
               : setUser(USER_DEFAULT);
           }}
         >
-          <span>
-            {user.name === '' && user.mail === '' ? 'Log in' : 'Log out'}
-          </span>
+          <span>{!user.name ? 'Log in' : 'Log out'}</span>
         </button>
       </div>
       {showModal && (

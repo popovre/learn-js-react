@@ -7,8 +7,6 @@ const CreateReviewFormContainer = ({ restaurantId }) => {
   const [createReview, { isLoading }] = useCreateReviewMutation();
   const { user } = useContext(UserContext);
 
-  console.log(user);
-
   if (!user.name.length) {
     return null;
   }
@@ -18,7 +16,15 @@ const CreateReviewFormContainer = ({ restaurantId }) => {
   }
 
   return (
-    <ReviewForm onSave={(newReview) => createReview(restaurantId, newReview)} />
+    <ReviewForm
+      user={user}
+      onSave={(newReview) =>
+        createReview({
+          restaurantId,
+          newReview: { ...newReview, userId: user.id },
+        })
+      }
+    />
   );
 };
 

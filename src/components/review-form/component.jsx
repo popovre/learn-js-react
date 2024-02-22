@@ -2,22 +2,14 @@ import { useReducer } from 'react';
 import styles from './style.module.scss';
 import classNames from 'classnames';
 import Button from '../button/component';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/user';
 
 const INITIAL_FORM = {
-  name: '',
   text: '',
   rating: 5,
 };
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case 'setName':
-      return {
-        ...state,
-        name: payload,
-      };
     case 'setText':
       return {
         ...state,
@@ -31,13 +23,12 @@ const reducer = (state, { type, payload }) => {
     case 'setMadRating':
       return {
         ...state,
-        name: 'э, поставь повыше!',
+        text: 'э, поставь повыше!',
         rating: +payload + 2,
       };
     case 'setMadRatingToo':
       return {
         ...INITIAL_FORM,
-        name: 'э, поставь повыше!',
         text: 'сказано же...',
         rating: +payload + 1,
       };
@@ -48,9 +39,9 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const ReviewForm = ({ initialState, onSave }) => {
+const ReviewForm = ({ initialState, onSave, user }) => {
   const [form, dispatch] = useReducer(reducer, INITIAL_FORM);
-  const user = useContext(UserContext);
+
   const onChangeRating = (e) => {
     return +e.target.value === 1
       ? dispatch({ type: 'setMadRating', payload: e.target.value })
@@ -68,7 +59,7 @@ const ReviewForm = ({ initialState, onSave }) => {
           className={classNames(styles.input)}
           id="name"
           type="text"
-          value={user.name ? user.name : form.name}
+          value={user?.name ? user.name : form.name}
           onChange={(e) =>
             dispatch({ type: 'setName', payload: e.target.value })
           }
