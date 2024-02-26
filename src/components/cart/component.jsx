@@ -7,7 +7,7 @@ const Cart = ({ productIds }) => {
     <div className={classNames(styles.root)}>
       <button onClick={() => {}}>Close</button>
       {productIds?.length
-        ? productIds.map((id) => <Dish key={id} id={id} />)
+        ? productIds.map((id) => <Dish key={id} dishId={id} />)
         : 'Empty'}
     </div>
   );

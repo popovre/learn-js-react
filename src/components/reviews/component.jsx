@@ -1,14 +1,14 @@
 import classNames from 'classnames';
 import styles from './style.module.scss';
-import Review from '../review/component';
+import ReviewContainer from '../review/container';
 
-const Reviews = ({ reviewIds }) => {
+const Reviews = ({ reviews }) => {
   return (
     <ul className={classNames(styles.reviewList)}>
-      {reviewIds.map((id) => {
+      {reviews.map((review) => {
         return (
-          <li className={classNames(styles.review)} key={id}>
-            <Review id={id} key={id} />
+          <li className={classNames(styles.review)} key={review.id}>
+            <ReviewContainer review={review} />
           </li>
         );
       })}

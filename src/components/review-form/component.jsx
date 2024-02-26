@@ -1,20 +1,15 @@
 import { useReducer } from 'react';
 import styles from './style.module.scss';
 import classNames from 'classnames';
+import Button from '../button/component';
 
 const INITIAL_FORM = {
-  name: '',
   text: '',
   rating: 5,
 };
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case 'setName':
-      return {
-        ...state,
-        name: payload,
-      };
     case 'setText':
       return {
         ...state,
@@ -28,13 +23,12 @@ const reducer = (state, { type, payload }) => {
     case 'setMadRating':
       return {
         ...state,
-        name: 'э, поставь повыше!',
+        text: 'э, поставь повыше!',
         rating: +payload + 2,
       };
     case 'setMadRatingToo':
       return {
         ...INITIAL_FORM,
-        name: 'э, поставь повыше!',
         text: 'сказано же...',
         rating: +payload + 1,
       };
@@ -45,7 +39,7 @@ const reducer = (state, { type, payload }) => {
   }
 };
 
-const ReviewForm = ({ userName }) => {
+const ReviewForm = ({ initialState, onSave, user }) => {
   const [form, dispatch] = useReducer(reducer, INITIAL_FORM);
 
   const onChangeRating = (e) => {
@@ -65,7 +59,7 @@ const ReviewForm = ({ userName }) => {
           className={classNames(styles.input)}
           id="name"
           type="text"
-          value={userName ? userName : form.name}
+          value={user?.name ? user.name : form.name}
           onChange={(e) =>
             dispatch({ type: 'setName', payload: e.target.value })
           }
@@ -95,6 +89,12 @@ const ReviewForm = ({ userName }) => {
           onChange={onChangeRating}
         />
       </div>
+      <Button
+        className={classNames(styles.button)}
+        onClick={() => onSave(form)}
+      >
+        Сохранить
+      </Button>
     </div>
   );
 };
