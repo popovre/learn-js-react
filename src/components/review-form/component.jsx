@@ -54,16 +54,7 @@ const ReviewForm = ({ initialState, onSave, user }) => {
     <div className={styles.root}>
       <h3>Write your review</h3>
       <div className={styles.field}>
-        <label htmlFor="name">Name</label>
-        <input
-          className={classNames(styles.input)}
-          id="name"
-          type="text"
-          value={user?.name ? user.name : form.name}
-          onChange={(e) =>
-            dispatch({ type: 'setName', payload: e.target.value })
-          }
-        />
+        <label htmlFor="name">Name: {user.name}</label>
       </div>
       <div className={styles.field}>
         <label htmlFor="text">Text</label>

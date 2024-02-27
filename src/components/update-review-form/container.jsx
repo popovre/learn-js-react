@@ -1,7 +1,5 @@
 import ReviewForm from '../review-form/component';
 import { useUpdateReviewMutation } from '../../redux/services/api';
-import { useContext } from 'react';
-import { UserContext } from '../../contexts/user';
 import { useEffect } from 'react';
 
 const UpdateReviewFormContainer = ({ review, user, onUpdateFinished }) => {
@@ -11,7 +9,7 @@ const UpdateReviewFormContainer = ({ review, user, onUpdateFinished }) => {
     if (isSuccess) {
       onUpdateFinished();
     }
-  }, [onSuccess, onUpdateFinished]);
+  }, [isSuccess, onUpdateFinished]);
 
   if (!user || !review) {
     return null;
@@ -25,11 +23,11 @@ const UpdateReviewFormContainer = ({ review, user, onUpdateFinished }) => {
   return (
     <ReviewForm
       initialState={{ text, rating }}
-      user={user?.name}
-      onSave={(updateReview) =>
+      user={user}
+      onSave={(updatedReview) =>
         updateReview({
           reviewId: id,
-          newReview: { ...updateReview, userId: user.id, id: id },
+          review: { ...updatedReview, userId: user.id, id },
         })
       }
     />
