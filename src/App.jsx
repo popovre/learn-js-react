@@ -8,6 +8,10 @@ import RestaurantPage from './pages/restaurant-page/component';
 import Layout from './components/layout/component';
 import HomePage from './pages/home-page/component';
 import DishPage from './pages/dish-page/component';
+import RestaurantContainer from './components/restaurant/container';
+import MenuContainer from './components/menu/container';
+import ReviewsContainer from './components/reviews/container';
+import { Navigate } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +22,17 @@ const router = createBrowserRouter([
       {
         path: '/restaurants',
         element: <RestaurantPage />,
+        children: [
+          {
+            path: ':restaurantId',
+            element: <RestaurantContainer />,
+            children: [
+              { index: true, element: <Navigate to="menu" replace /> },
+              { path: 'menu', element: <MenuContainer /> },
+              { path: 'reviews', element: <ReviewsContainer /> },
+            ],
+          },
+        ],
       },
       { path: '/dish/:id', element: <DishPage /> },
     ],

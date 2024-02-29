@@ -3,7 +3,7 @@ import RestaurantTab from '../restaurant-tab/component';
 import styles from './styles.module.scss';
 import classNames from 'classnames';
 
-const RestaurantTabs = ({ onClick, restaurants }) => {
+const RestaurantTabs = ({ restaurants }) => {
   const marginClass = {
     marginS: styles.marginS,
     marginM: styles.marginM,
@@ -16,14 +16,8 @@ const RestaurantTabs = ({ onClick, restaurants }) => {
       {restaurants.map(({ id, name }) => {
         return (
           <NavLink to={`/restaurants/${id}`} key={id}>
-            {(disabled) => (
-              <RestaurantTab
-                name={name}
-                onClick={() => {
-                  onClick(id);
-                }}
-                disabled={false}
-              />
+            {({ isActive }) => (
+              <RestaurantTab disabled={isActive} name={name} />
             )}
           </NavLink>
         );
