@@ -16,13 +16,15 @@ const RestaurantTabs = ({ onClick, restaurants }) => {
       {restaurants.map(({ id, name }) => {
         return (
           <NavLink to={`/restaurants/${id}`} key={id}>
-            <RestaurantTab
-              name={name}
-              onClick={() => {
-                onClick(id);
-              }}
-              isActive={false}
-            />
+            {(disabled) => (
+              <RestaurantTab
+                name={name}
+                onClick={() => {
+                  onClick(id);
+                }}
+                disabled={false}
+              />
+            )}
           </NavLink>
         );
       })}
