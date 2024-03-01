@@ -34,7 +34,7 @@ const router = createBrowserRouter([
           },
         ],
       },
-      { path: '/dish/:id', element: <DishPage /> },
+      { path: '/dish/:dishId', element: <DishPage /> },
     ],
   },
 ]);

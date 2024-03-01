@@ -10,18 +10,23 @@ const Restaurant = ({ restaurant }) => {
       <h1 className={classNames(styles.h1, styles.restaurantName)}>
         {restaurant.name}
       </h1>
-      <NavLink to="menu">
-        {({ isActive }) => <Button disabled={isActive}>Menu</Button>}
-      </NavLink>
-      <NavLink to="reviews">
-        {({ isActive }) => <Button disabled={isActive}>Reviews</Button>}
-      </NavLink>
+      <div className={classNames(styles.linkWrapper)}>
+        <NavLink to="reviews">
+          {({ isActive }) => (
+            <Button className={classNames(styles.button)} disabled={isActive}>
+              Reviews
+            </Button>
+          )}
+        </NavLink>
+        <NavLink to="menu">
+          {({ isActive }) => (
+            <Button className={classNames(styles.button)} disabled={isActive}>
+              Menu
+            </Button>
+          )}
+        </NavLink>
+      </div>
       <Outlet />
-      {/* <h3 className={classNames(styles.h3)}>Menu</h3>
-      <MenuContainer restaurant={restaurant} />
-      <h3 className={classNames(styles.h3, styles.reviewTitle)}>Reviews</h3>
-      <ReviewsContainer restaurant={restaurant} /> */}
-      {/* <CreateReviewFormContainer restaurantId={restaurant.id} /> */}
     </div>
   );
 };

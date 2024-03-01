@@ -9,7 +9,6 @@ const Layout = () => {
     <div className={classNames(styles.root)}>
       <Header />
       <main className={classNames(styles.main)}>
-        <h1 className={classNames(styles.title)}>Main</h1>
         <Outlet />
       </main>
       <Footer />
