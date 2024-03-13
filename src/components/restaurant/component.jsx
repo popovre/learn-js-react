@@ -2,7 +2,6 @@ import classNames from 'classnames';
 import styles from './style.module.scss';
 import { Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-// import Button from '../button/component';
 
 const Restaurant = ({ restaurant }) => {
   return (

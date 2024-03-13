@@ -1,6 +1,7 @@
 import Reviews from './component';
 import { useGetReviewsQuery } from '../../redux/services/api';
 import { useParams } from 'react-router-dom';
+import CreateReviewFormContainer from '../create-review-form/container';
 
 const ReviewsContainer = () => {
   const { restaurantId } = useParams();
@@ -13,7 +14,13 @@ const ReviewsContainer = () => {
   if (!reviews?.length) {
     return null;
   }
-  return <Reviews reviews={reviews} />;
+
+  return (
+    <div>
+      <Reviews reviews={reviews} />
+      <CreateReviewFormContainer restaurantId={restaurantId} />
+    </div>
+  );
 };
 
 export default ReviewsContainer;
